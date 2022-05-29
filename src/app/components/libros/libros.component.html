@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header">
+    <form action="">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Ingrese Nombre del Libro" #nombre>
+            <button class="btn btn-outline-secondary" type="button" (click)="buscarLibro(nombre.value)">Buscar</button>
+          </div>
+    </form>
+  </div>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src={{libro.img}} class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{libro.titulo}}</h5>
+            <p class="card-text">{{libro.desc}}</p>
+            <p class="card-text"><small class="text-muted">{{libro.fechaP}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Autores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let l of libros">
+            <td><a (click)="mostrarDetalle(l.id)">{{l.id}}</a></td>
+            <td>{{l.titulo}}</td>
+            <td><img src={{l.img}} alt=""></td>
+            <td>
+              <ul>
+                <li *ngFor="let aut of l.autores">{{aut}}</li>
+              </ul>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+
